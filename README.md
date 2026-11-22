@@ -103,7 +103,7 @@ npm run build
 ## 3. Práctica 9.
 
 | Qué | Cantidad |
-|---|---:|---|
+| --- | ---: |
 | `import.meta.env.VITE_API_URL` | 46 usos en 16 archivos |
 | `Authorization: \`Bearer ${token}\`` | 38 usos en 8 archivos |
 | `!respuesta.ok` o `!response.ok` | 23 usos en 15 archivos |
