@@ -99,3 +99,23 @@ Para compilar y verificar tipos:
 ```bash
 npm run build
 ```
+
+## 3. Práctica 9.
+
+| Qué | Veces | Archivos |
+|---|---:|---|
+| `import.meta.env.VITE_API_URL` | 8 | 2 (`App`, `UserList`) |
+| `Authorization: \`Bearer ${token}\`` | 7 | 1 (`UserList`) |
+| `!respuesta.ok` o `!response.ok` | 6 | 2 (`App`, `UserList`) |
+| `respuesta.status === 401` | 6 | 1 (`UserList`) |
+| Estados separados de `loading` y `error` | 2 estados en `UserList`; además `App` tiene su propio estado de `error` | 2 |
+
+Por ejemplo, si el backend cambia el formato del encabezado de autenticación, hay que modificar 7 construcciones de `Authorization` dentro de [`UserList.tsx`]. Como TypeScript trata esos encabezados como strings, puede pasar el build aunque quede una llamada sin el formato correcto y el backend la rechace.
+
+La solución propuesta para el paso 9 es extraer esas responsabilidades:
+
+- Un único `apiFetch` debe construir la URL, agregar el token al encabezado, revisar `response.ok` y centralizar la gestión del `401`.
+- Un hook `useFetch` debe centralizar los estados de carga y error.
+- Cada componente puede consumir esas dos abstracciones sin repetir lógica de red.
+
+De esta manera, un cambio posterior en la URL, el encabezado del token o el manejo de una sesión vencida puede concentrarse en pocos lugares en vez de modificarse en cada pedido.
