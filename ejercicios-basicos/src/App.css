@@ -1,0 +1,31 @@
+.card {
+  border: 1px solid dimgray;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.card-button {
+  background-color: #0369a1;
+  color: #e2e8f0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.card-button:hover {
+  background-color: #0284c7;
+}
+
+.card-text {
+  text-align: justify;
+  color: dimgray;
+  margin-top: 12px;
+}
