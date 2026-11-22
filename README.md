@@ -102,13 +102,11 @@ npm run build
 
 ## 3. Práctica 9.
 
-| Qué | Veces | Archivos |
-|---|---:|---|
-| `import.meta.env.VITE_API_URL` | 8 | 2 (`App`, `UserList`) |
-| `Authorization: \`Bearer ${token}\`` | 7 | 1 (`UserList`) |
-| `!respuesta.ok` o `!response.ok` | 6 | 2 (`App`, `UserList`) |
-| `respuesta.status === 401` | 6 | 1 (`UserList`) |
-| Estados separados de `loading` y `error` | 2 estados en `UserList`; además `App` tiene su propio estado de `error` | 2 |
+Elemento	                                               Cantidad
+import.meta.env.VITE_API_URL	                          46 usos en 16 archivos
+Authorization: Bearer ${token}	                       38 usos en 8 archivos
+if (!response.ok) / if (!respuesta.ok)	                 23 usos en 15 archivos
+useState de loading y error	                          22 estados: 7 de loading y 15 de error
 
 Por ejemplo, si el backend cambia el formato del encabezado de autenticación, hay que modificar 7 construcciones de `Authorization` dentro de [`UserList.tsx`]. Como TypeScript trata esos encabezados como strings, puede pasar el build aunque quede una llamada sin el formato correcto y el backend la rechace.
 
