@@ -64,15 +64,35 @@ Cada carpeta contiene el proyecto completo y funcionando hasta dicha práctica i
 
 > **Nota:** La práctica 9 no lleva carpeta de código ya que se responde en el cuestionario de la cátedra.
 
-### Instrucciones de Ejecución de cualquier Práctica
+### Cómo correr una práctica
 
-Para ingresar y ejecutar cualquiera de las prácticas (por ejemplo, `practica8`):
+Necesitan la API de clase `clase-1-sqlmodel` corriendo en `http://localhost:8000`:
+
+```bash
+# desde la carpeta clase-1-sqlmodel
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8000
+```
+
+Y después, en la práctica:
 
 ```bash
 cd frontend-endpoints/practica8
+copy .env.example .env     # VITE_API_URL=http://localhost:8000
 npm install
 npm run dev
 ```
+
+Abrir [http://localhost:5174](http://localhost:5174/) (usar `localhost`, no `127.0.0.1`).
+
+Usuarios de prueba (contraseña `123`):
+
+| Email | Rol | Puede |
+|---|---|---|
+| `mgomez@email.com` | ADMIN | ver, crear y borrar usuarios |
+| `sfer@email.com` | REGULAR | solo ver (crear y borrar responden 403) |
 
 Para compilar y verificar tipos:
 
